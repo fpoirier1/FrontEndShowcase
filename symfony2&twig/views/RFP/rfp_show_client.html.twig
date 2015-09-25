@@ -1,0 +1,45 @@
+{% extends 'TCCoreBundle::skeleton_client.html.twig' %}
+
+{% set thread = rfp.thread %}
+
+{% use "TCCoreBundle:Relation:menu_client.html.twig" %}
+
+{% use "TCCoreBundle:RFP:rfp_show_base.html.twig" with body_class as base_body_class %}
+
+{% use "TCCoreBundle:Thread:thread_quick.html.twig" %}
+
+{% block body_class %} {{parent()}} {{ block('base_body_class') }}  {% endblock %}
+
+{% block toolbar %}
+<div class="tc-breadcrumb pull-left">
+    {% set menu = knp_menu_get('TCCoreBundle:ClientMenuBuilder:rfpsMenu',[],{"relation": relation, "rfp":rfp}) %}
+    {{ knp_menu_render(menu, {'template': 'TCCoreBundle::breadcrumbs.html.twig'}) }}
+</div>
+
+<div class="tc-controls toolbar pull-right">
+    {% if rfp.order is not null %}
+        <a class="btn btn-default btn-lg" 
+            href="{{path('client_order_show',{'idOrder':rfp.order.id, 'idRelation':rfp.relation.id})}}">
+            View Proposal
+        </a>
+    {% elseif not rfp.cancelled and not rfp.declined  %}
+        <a class="btn btn-primary btn-lg" 
+           href="{{path('client_order_new',{'idRFP':rfp.id, 'idRelation':rfp.relation.id})}}">
+            <span class="icon-new-proposals-light-small"></span>Create Proposal
+        </a>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block main_attrs %}
+{{ block('thread_main_attrs') }}
+{% endblock %}
+
+{% block main_after %}
+{{ block('thread_section') }}
+{% endblock %}
+
+{% block bottom_js %}
+{{ parent() }}
+{{ block('thread_bottom_js') }}
+{% endblock %}

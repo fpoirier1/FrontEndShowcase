@@ -1,0 +1,145 @@
+
+
+@keyframes tc-message-new-kf {
+  from { opacity: 0; margin-top: -100px }
+  to { opacity: 1; margin-top: 30px }
+}
+@-webkit-keyframes tc-message-new-kf {
+  from { opacity: 0; margin-top: -100px }
+  to { opacity: 1; margin-top: 30px }
+}
+
+.message_bar ul {
+	li {
+		padding: 0;
+
+		a {
+			background: #fff;
+			border: 1px solid #dededf;
+			text-align: center;
+			border-radius: 6px;
+			margin: 0 10px;
+		}
+	}
+}
+
+.tc-message{
+	padding: 20px 30px;
+	margin-top: 10px;
+	background: white;
+	border-radius:4px;
+	
+	@include transition(all 400ms ease 0s);
+	@include animation(scale-in 400ms ease);
+
+	& > .media-object{
+		margin-right:20px;
+
+		.tc-avatar img{
+			@include square(50px);
+			border-radius: 6px;
+		}
+	}
+
+	.tc-message-edit-objectives, .tc-message-edit-progress, .tc-attachments-bottom {
+		display: none;
+	}
+
+	.tc-message-header {
+		background: #fff;
+		text-align: left;
+		color: $gray-light;
+		font-size: 12px;
+	}
+
+	.tc-message-body{
+		
+		p{
+			font-size: 16px;
+		}
+	}
+
+	.tc-message-objectives {
+
+		.checkmark {
+			top: -2px;
+
+			&:before {
+				font-size: 14px;
+				padding: 0 10px 0 20px;
+				color: #aaa;
+				
+			}
+		}
+
+		.plus {
+			left: -14px;
+			top: 2px;
+
+			&:before {
+				font-size: 10px;
+				color: $gray;
+			}
+		}
+
+		.title {
+			margin-left: 55px;
+		}	
+	}
+
+	.tc-message-progress {
+		margin: 10px 0;
+		border-left: 3px solid #48bd92;
+		padding-left: 20px;
+		
+		h3 {
+			color: #48bd92;
+			font-size: 20px;
+			padding-top: 10px;
+		}
+		p {
+			font-style: italic;
+			font-size: 13px;
+			padding-bottom: 10px;
+			color: #999;
+		}
+	}
+
+	.tc-message-files{
+		img {
+			display: block;
+			width: 100% !important;
+			height: auto !important;
+		}
+	}
+
+	.tc-message-heading{
+		color: $gray-light;
+		font-size: $font-size-small;
+
+		.tc-username{
+			color: $brand-primary;
+		}
+		.tc-bullet{
+			margin: 0 2px;
+		}
+	}
+
+	.tc-message-options{
+		font-size: $font-size-small;
+
+		ul{
+			margin-bottom: 3px;
+		}
+	}
+
+	.tc-message-body {
+
+		 .form-control {
+				border: none;
+				box-shadow: none;
+				font-size: 16px;
+				padding: 0;
+		}
+	}
+}

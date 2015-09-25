@@ -1,0 +1,64 @@
+<template name="relation_bar">
+<nav class="tc-navbar navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="tc-current dropdown-toggle" data-toggle="dropdown">
+          {{> relation_bar_contact current_relation}} <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu" role="menu">
+          {{#each relations}}
+            <li>
+                <a href="{{pathFor 'relation' relationId=_id}}">
+                  {{> relation_bar_contact}}
+                </a>
+            </li>
+          {{/each}}    
+        </ul>
+      </li>
+      <li class="tc-nav-objectives">
+        <a href="{{pathFor 'relation' relationId=current_relation_id}}">
+          <span class="tc-label">Posts</span>
+          <span class="tc-value">14</span>
+        </a>
+      </li>
+
+      <li class="tc-nav-objectives">
+        <a href="{{pathFor 'relation_objectives' relationId=current_relation_id}}">
+          <span class="tc-label">Objectives</span>
+          <span class="tc-value">4</span>
+        </a>
+      </li>
+
+      <li class="tc-nav-objectives">
+        <a href="{{pathFor 'relation_images' relationId=current_relation_id}}">
+          <span class="tc-label">Images</span>
+          <span class="tc-value">142</span>
+        </a>
+      </li>
+
+      <li class="tc-nav-objectives">
+        <a href="{{pathFor 'relation_files' relationId=current_relation_id}}">
+          <span class="tc-label">Files</span>
+          <span class="tc-value">0</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+</template>
+
+<template name="relation_bar_contact">
+  <div class="tc-contact">
+    <div class="tc-contact-inner">
+      <div class="tc-avatar">
+        <div class="tc-status {{status}}"></div>
+        <img src="{{avatar contact}}"/>
+      </div>
+      <div class="tc-name">{{fullname contact}}</div>
+    </div>
+  </div>
+</template>

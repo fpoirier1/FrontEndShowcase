@@ -1,0 +1,28 @@
+{% extends 'TCCoreBundle::skeleton_client.html.twig' %}
+
+{% block body_class -%}{{ parent() }} vendor-pricebook-soon {% endblock %}
+
+{% block toolbar %}
+<div class="tc-breadcrumb pull-left">
+    <ul class="breadcrumb">
+        <li class="active">    
+            <a href="#">
+                <span class="glyphicon glyphicon-book tc-icon-pricebook-dark-lg"></span> Price Book
+            </a>
+        </li>    
+    </ul>
+</div>
+
+<div class="tc-controls pull-right">
+    <!--<button class="disabled btn-primary btn btn-lg">
+        <span class=".glyphicon .glyphicon-plus"></span>
+        Create a new item
+    </button>-->
+</div>
+{% endblock %}
+
+{% block sheet %}
+
+{{block('empty_pricebook')}}
+
+{% endblock %}

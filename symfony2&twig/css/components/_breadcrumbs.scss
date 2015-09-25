@@ -1,0 +1,72 @@
+//
+// Components/Breadcrumbs
+// --------------------------------------------------
+
+// Variables 
+// -------------------------
+
+// Imports 
+// -------------------------
+
+// Basic Elements 
+// -------------------------
+
+.tc-breadcrumb {
+    width: 100%;
+    color: #333;
+    font-weight: 200;
+    font-size: 24px;
+    
+    .breadcrumb{
+        width: 100%;
+        background: none; 
+        padding: 15px 50px;
+        font-weight: 300;
+        font-family: 'Open Sans', sans-serif;
+        color: #333;
+        
+        img{
+            margin-top: -3px;
+        }
+        
+        .previous {
+            vertical-align: top;
+            padding-top: 8px;
+            
+            [class^="icon-"], [class*=" icon-"] {
+                margin: 10px 10px 0 0;
+            }
+            
+            a {
+                font-size: 30px;
+                color: #999;
+            }
+            
+            a:hover {
+                color: #333;
+            }
+            
+        }
+        
+        .active{
+            font-size: 40px;
+            color: #333;
+            width: 60%;
+            @include text-overflow();
+            
+            a {
+                cursor: default;
+                color: #333;
+            }
+            
+            [class^="icon-"], [class*=" icon-"] {
+                margin: 18px 14px 0 0;
+            }
+        }
+        
+        .active:before {
+            font-size: 30px;
+            padding: 0 10px;
+        }
+    }
+}

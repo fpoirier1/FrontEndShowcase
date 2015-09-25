@@ -1,0 +1,28 @@
+{% extends 'TCCoreBundle::skeleton_vendor.html.twig' %}
+
+{% block body_class -%}{{ parent() }} client-projects-soon {% endblock %}
+
+{% block toolbar %}
+<div class="tc-breadcrumb pull-left">
+    <ul class="breadcrumb">
+        <li class="active">    
+            <a href="#">
+                <span class="icon-projects-dark-lg"></span> Projects
+            </a>
+        </li>    
+    </ul>
+</div>
+
+<div class="tc-controls pull-right">
+    <!--<button class="disabled btn-primary btn">
+        <i class="icon-projects"></i>
+        Open a new project
+    </button>-->
+</div>
+{% endblock %}
+
+{% block sheet %}
+
+{{block('empty_projects')}}
+
+{% endblock %}

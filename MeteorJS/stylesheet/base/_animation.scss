@@ -1,0 +1,38 @@
+@-webkit-keyframes slide-in-top {
+  from {
+    margin-top: -100%
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    margin-top: -100%
+  }
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0
+  }
+}
+
+@-webkit-keyframes scale-in {
+  from {
+    @include opacity(0);
+    @include translate(0, -50px);
+
+  }
+}
+
+@keyframes scale-in {
+  from {
+    @include opacity(0);
+    @include translate(0, -50px);
+  }
+}

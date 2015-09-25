@@ -1,0 +1,24 @@
+{% block body_class %} rfp-show {% endblock %}
+
+{% block sheet %}
+
+    {% include "TCCoreBundle:RFP:rfp_ribbon.html.twig" with { 'rfp' : rfp } %}
+
+
+    <div class="tc-heading-section">
+        <h2>{{rfp.heading}}</h2>
+        <p>{{rfp.subheading}}</p>
+    </div>
+
+    <div class="tc-body-section">        
+        <div class="tc-document-body">
+            {% for block in rfp.body %} 
+            <div class="tc-block">
+                <h3>{{block.title}}</h3>
+                <p>{{block.body|raw}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+               
+{% endblock %}

@@ -1,0 +1,335 @@
+//
+// Base/Tables
+// --------------------------------------------------
+
+// Imports
+// -------------------------
+
+@import "../vendor/bootstrap/lib/_mixins";
+
+// Variables
+// -------------------------
+
+// Temporary – Till checkboxes are functionnables
+
+.temporary-space {
+    padding-left: 30px !important;
+}
+
+// Overwriting Bootstrap
+// -------------------------
+
+.table>thead>tr>th {
+    border-bottom: 1px solid $gray-border-color;
+}
+
+// Mixins
+
+@mixin th-elements () {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: $font-size-h6;
+    vertical-align: middle;
+    color: $gray-light;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+// Table Elements
+// -------------------------
+
+.tc-table { 
+    
+    // Table Elements
+    .tc-novalue{
+        color: #999;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+    .tc-left-gap {
+        padding-left: 20px;
+    }
+    
+    .tc-right-gap {
+        
+    }
+    
+    >thead >tr {
+        
+        th {
+            @include th-elements();
+        }
+        
+        .left {
+            text-align: left;
+        }
+        
+    }
+    
+    >tbody >tr {
+        
+        >td {
+            padding: 20px 0;
+            border-bottom: 1px solid $gray-border-color;
+            vertical-align: middle;
+        }
+        
+        // Actions Checkboxes
+        .tc-actions-col {
+            width: 60px;
+            vertical-align: top;
+            padding: 23px 0 0 18px;
+        }
+        
+        .tc-empty-actions-col {
+            width: 20px;
+        }
+        
+        // Row Number
+        .tc-number-col {
+            width: 100px;
+            //padding-right: 20px;
+        }
+        
+        // Descriptions
+        .tc-description-col {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: left;
+            
+            .title {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                color: #777;
+                font-weight: normal;
+                font-weight: bold;
+            }
+            
+            .main-description {
+                font-size: $font-size-h6;
+                color: $gray-light;
+                font-weight: normal;
+                padding-top: 5px;
+            }
+            .sub-description {
+                font-size: 14px;
+                color: #333;
+                font-weight: normal;
+                padding-top: 5px;
+            }
+        }
+        
+        // Number of discussions
+        .tc-discussion-col {
+            width: 100px;
+            
+            .badge-talk-bubble {
+                text-align: center;
+                margin: auto;
+                font-weight: bold;
+            }
+        }
+        
+        // Progress Bar
+        .tc-progressbar-col {
+            width: auto;
+            min-width: 250px;
+            padding: 0 20px;
+            
+            .progress {
+                margin-bottom: 0;
+            }
+            
+            .tc-progress-sign {
+                color: $gray-light;
+                font-size: $font-size-h6;
+                padding-left: 2px;
+            }
+            
+            .progress-label {
+                text-align: right;
+                font-weight: bold;
+                padding-right: 10px;
+            }
+            
+            .total-value {
+                text-align: right;
+                font-weight: bold;
+                padding-right: 9px;
+                color: $gray-light;
+                font-size: $font-size-h6;
+                padding-top: 2px;
+            }
+        }
+        
+        .tc-status-col {
+            text-align: center;
+            
+            ul {
+                padding: 5px 0 0 10px;
+            }
+        }
+        
+        .tc-status-2-items {
+            width: 210px;
+        }
+        
+        .tc-status-3-items {
+            width: 240px;
+        }
+        
+        .tc-multiactions-col {
+            width: 80px;
+            text-align: center;
+            
+            .dropdown-menu {
+                text-align: right;
+                min-width: 100px;
+            }
+        }
+        
+        // Simple Informations
+        .tc-info-col {
+            text-align: center;
+            font-size: $font-size-base;
+            font-weight: bold;
+            color: $gray;
+        }
+        
+        // Date
+        .tc-date-col {
+            width: 150px;
+            padding: 0 20px;
+        }
+        
+        // Price of Items
+        .tc-unitprice-col {
+            width: 110px;
+        }
+        
+        // Quantity of Items
+        .tc-quantity-col {
+            width: 40px;
+        }
+        
+        // Row Total Amount in $
+        .tc-subtotal-col {
+            width: 120px;
+            font-size: $font-size-h4;
+        }
+        
+    }
+    
+    >tfoot >tr {
+        
+    }
+}
+
+.tc-deliverables-table {
+    //border-top: 1px dotted $gray-border-color;
+    margin-top: 40px;
+    
+    >thead >tr {
+        >th {
+            @include th-elements();
+            padding-top: 20px;
+        }
+        
+        .left {
+            text-align: left;
+        }
+    }
+    
+    >tbody >tr, >tfoot >tr {
+        
+        >td {
+            padding: 15px 0;
+            border-bottom: 1px solid $gray-border-color;
+            vertical-align: middle;
+        }
+        
+        .tc-info-col {
+            text-align: center;
+            font-size: $font-size-base;
+            font-weight: bold;
+            color: $gray;
+        }
+        
+        .tc-no {
+            width: 50px;
+            font-weight: normal;
+            color: $gray-light;
+            font-size: $font-size-h6;
+        }
+        
+        .tc-description {
+            text-align: left;
+        }
+        
+        .tc-description-edit {
+            padding-right: 10px;
+        }
+        
+        .tc-cost {
+            width: 100px;
+            font-weight: normal;
+            color: $gray-light;
+        }
+        
+        .tc-cost-edit {
+            padding-left: 10px;
+            padding-right: 10px;
+            
+            input {
+                text-align: center;
+            }
+        }
+        
+        .tc-quantity {
+            width: 50px;
+            font-weight: normal;
+            color: $gray-light;
+        }
+        
+        .tc-quantity-edit {
+            width: 70px;
+            padding-left: 10px;
+            padding-right: 10px;
+            
+            input {
+                text-align: center;
+            }
+        }
+        
+        .tc-subtotal {
+            width: 90px;
+            text-align: center;
+        }
+        
+        .tc-actions {
+            width: 30px;
+            text-align: center;
+            padding-right: 15px;
+        }
+    }
+    
+    >tfoot >tr {
+        
+        >td {
+            border-bottom: 1px solid $gray-border-color;
+        }
+    }
+    
+    >.edit-mode >tr {
+        
+        // Padding agjustment for edit rows
+        >td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}

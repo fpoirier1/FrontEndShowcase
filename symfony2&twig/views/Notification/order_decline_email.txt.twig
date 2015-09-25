@@ -1,0 +1,40 @@
+{% extends "::skeleton_email.html.twig" %}
+
+{% block subject %}
+{% autoescape false %}
+{{relation.client.getFullName()}} has declined your proposal...
+{% endautoescape %}
+{% endblock %}
+
+{% block title %}
+{% autoescape false %}
+<img src="{{ app.request.uriForPath('/img/email/title-order-decline.jpg')}}" border="0" />
+{% endautoescape %}
+{% endblock %}
+
+{% block sub_title %}{% autoescape false %}
+Proposal Declined
+{% endautoescape %}{% endblock %}
+
+{% block body_html %}
+
+<div style="color: #112834; padding-bottom: 20px; margin-bottom: 30px; border-bottom: 1px dashed #dededf;">
+    <img src="{{app.request.uriForPath(avatar(relation.client.user) | imagine_filter('140_thumb'))}}" style="margin-bottom: 20px; border-radius: 50%;" /><br /> 
+    <span style=" font-size: 24px; font-weight:bold;">{{relation.client.getFullName()}}</span> <p style="color: #990000;">has just <b>declined your proposal</b>.</p>
+</div>
+
+{% if declinal is not empty %}
+    Your client's message :<br /><br />
+    {{ declinal.why }} <br /><br />
+    {{ declinal.other }} 
+{% endif %}
+    
+{% endblock %}
+    
+{% block button1 %}
+View Proposal
+{% endblock %}
+
+{% block button1_url %}{% autoescape false %}
+{{url('client_order_show', {'idRelation':relation.id, 'idOrder':order.id})}}
+{% endautoescape %}{% endblock %}

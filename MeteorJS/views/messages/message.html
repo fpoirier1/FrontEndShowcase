@@ -1,0 +1,28 @@
+<template name="message">
+  <div id="{{_id}}" class="tc-message {{#if draft}}tc-message-draft{{/if}} {{#if isEmptyDraft}}tc-empty{{/if}}" style="{{delay}}">
+
+    <div class="media-object pull-left">      
+      <div class="tc-avatar">
+        <img src="{{avatar authorId}}" />
+      </div>
+    </div>
+
+    <div class="media-body">
+      <div class="tc-message-header media-header">
+        <a href="#">{{fullname authorId}}</a> - <span class="tc-time">{{time}}</span>
+      </div>
+
+      {{#if draft}}
+        {{> message_edit}}
+      {{else}}
+        {{> message_read}}
+      {{/if}}
+    </div>
+  
+    {{#unless draft}}
+      {{> message_comments}}
+    {{/unless}}
+
+  </div>
+
+</template>

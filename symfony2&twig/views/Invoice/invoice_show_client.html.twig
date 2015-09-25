@@ -1,0 +1,94 @@
+{% extends 'TCCoreBundle::skeleton_client.html.twig' %}
+
+{% use "TCCoreBundle:Relation:menu_client.html.twig" %}
+
+{% block body_class %} {{parent()}} invoice-show  {% endblock %}
+
+{% block toolbar %}
+    <div class="tc-breadcrumb pull-left">
+        {% set menu = knp_menu_get('TCCoreBundle:ClientMenuBuilder:invoicesMenu',[],{"invoice":invoice, "relation": relation}) %}
+           
+        {{ knp_menu_render(menu, {'template': 'TCCoreBundle::breadcrumbs.html.twig'}) }}
+    </div>
+ <div class="tc-controls toolbar pull-right">        
+        {% if is_editable(invoice) %}
+            <a class="btn-primary btn-lg btn"
+               href="{{path('client_invoice_edit' , {'idInvoice':invoice.id, 'idRelation': relation.id})}}">
+                Edit Invoice
+            </a>   
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block sheet %}
+
+<div class="tc-info-section">
+    <div class="row">
+        <div class="tc-invoice-vendor col-md-4">
+            <legend>Vendor</legend>
+            <p>
+                <b>{{relation.getVendor().user.getFullName()}}</b><br>
+                <em>{{relation.getVendor().user.email}}</em>      
+            </p>
+        </div>
+
+        <div class="tc-invoice-client col-md-4">
+            <legend>Customer</legend>
+            <p>
+                <b>{{relation.getClient().user.getFullName()}}</b><br>
+                <em>{{relation.getClient().user.email}}</em>            
+            </p>
+        </div>
+
+        <div class="tc-invoice-terms col-md-4">
+            <legend>Informations</legend>
+            <p><b>Invoice #:</b> {{invoice.no}}<br>
+                <b>Date:</b> {{invoice.getCreatedAt()|date('F dS Y')}}<br>
+                <b>Due Date:</b> {{invoice.getDueAt()|date('F dS Y')}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="tc-deliverables-section">  
+        
+    <table  class="tc-deliverables-table table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th class="left tc-left-gap">Description</th>
+                <th>Unit price</th>
+                <th>Qty</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for deliverable in invoice.deliverables() %}
+            <tr>
+                <td class="tc-no tc-info-col">{{loop.index}}</td>
+                <td class="tc-description tc-info-col left">
+                    {{deliverable.name}}
+                </td>
+                <td class="tc-cost tc-info-col">
+                    $ {{deliverable.cost|number_format(2, '.', ',')}}
+                </td>
+                <td class="tc-quantity tc-info-col">
+                    {{deliverable.quantity}}
+                </td>
+                <td class="tc-subtotal tc-info-col">
+                    $ {{(deliverable.quantity*deliverable.cost)|number_format(2, '.', ',')}}
+                </td>
+                
+            </tr>     
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="tc-total-price">
+    <div class="split"></div>
+    <div class="split"></div>
+    <div class="total-label">Total</div>
+    <div class="price">$ {{invoice.total|number_format(2, '.', ',')}}</div>
+</div>
+</div> 
+
+{% endblock %}

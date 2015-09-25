@@ -1,0 +1,37 @@
+//
+// Layouts
+// --------------------------------------------------
+
+// Variables 
+// -------------------------
+
+$menubar-normal-width: 220px;
+
+// Imports 
+// -------------------------
+
+@import "menubar";
+@import "main";
+@import "sidebar";
+
+// Basic Elements 
+// -------------------------
+
+.tc-menu-panel {
+    position: fixed;
+    top: 0px;
+    bottom:0;
+    left:0;
+    width: $menubar-normal-width;
+    overflow-y: hidden;
+    vertical-align: top;   
+}
+
+.tc-main-panel {
+    position: relative;
+    margin-left: $menubar-normal-width;
+}
+
+.tc-sidebar {
+    
+}

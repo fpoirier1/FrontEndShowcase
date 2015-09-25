@@ -1,0 +1,50 @@
+//
+// Layouts/Menubar
+// --------------------------------------------------
+
+// Variables 
+// -------------------------
+
+// Basic Elements 
+// -------------------------
+
+// Left Menu
+.tc-menu-panel {
+    
+    color: #fff;
+    background: $gray-darker;
+    box-shadow: -5px 0px 5px -5px $gray-darker inset;
+    
+    .tc-logo {
+        padding: 25px 0 0 44px;
+        position: absolute;
+        bottom: 40px;
+    }
+    
+    
+    .tc-user-section{
+        padding:20px;
+        text-align: center;
+        
+        & > img {
+            margin : 20px 0;
+        }
+        
+        & > .name{
+            font-size: $font-size-large;
+            font-weight: bold;
+            padding-bottom: 20px;
+        }
+    }
+    
+    .tc-return-section{
+        ul{
+            margin: 5px 0;
+        }
+        span{
+        }
+        i{
+            margin-top:1px;
+        }
+    }
+}

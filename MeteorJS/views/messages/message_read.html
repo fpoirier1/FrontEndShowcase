@@ -1,0 +1,64 @@
+<template name="message_read">
+<div class="tc-message-body ">
+  <p>{{body}}</p>
+</div>
+
+
+{{# if isNotEmpty objectives}}
+<div class="tc-message-objectives">
+  <ul class="list-unstyled">
+    {{#each objectives}}
+      <li>
+         <div class="pull-left"><span class="glyphicon glyphicon-ok checkmark"></span><span class="glyphicon glyphicon-plus plus"></span></div>
+         <div class="title">{{title}}</div>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+{{/if}}
+
+{{# if isNotEmpty progress_notes}}
+<div class="tc-message-progress">
+
+  <ul class="list-unstyled">
+    {{#each progress_notes}}
+      <li>
+        <h3>{{value}}% Completed</h3>
+        <p>{{objective_title}}</p>
+      </li>
+    {{/each}}
+  </ul>
+
+</div>
+{{/if}}
+
+
+{{# if isNotEmpty files}}
+<div class="tc-message-files">
+  <ul class="list-unstyled">          
+    {{#each files}}
+      <li>
+        <a href="{{url}}">
+          {{#if isImage}}
+            <img src="{{url}}" />
+          {{/if}}
+
+          {{#unless isImage}}
+            <div class="tc-icon-pdf"></div>
+            <div class="name">{{name}}<div class="size">188kb</div></div>
+          {{/unless}}
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+{{/if}}
+
+
+<!--<div class="tc-message-options">
+  <ul class="list-inline">
+    <li><a href class="tc-approve">Approve</a></li>
+  </ul>
+</div>-->
+      
+</template>

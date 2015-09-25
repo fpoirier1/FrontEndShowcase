@@ -1,0 +1,41 @@
+{% extends "::skeleton_email.html.twig" %}
+
+{% block subject %}
+{% autoescape false %}
+{{relation.vendor.getFullName()}} has declined your request...
+{% endautoescape %}
+{% endblock %}
+
+{% block title %}
+{% autoescape false %}
+<img src="{{ app.request.uriForPath('/img/email/title-rfp-decline.jpg')}}" border="0" />
+{% endautoescape %}
+{% endblock %}
+
+{% block sub_title %}{% autoescape false %}
+RFP Declined
+{% endautoescape %}{% endblock %}
+
+
+{% block body_html %}
+
+<div style="color: #112834; padding-bottom: 20px; margin-bottom: 30px; border-bottom: 1px dashed #dededf;">
+    <img src="{{app.request.uriForPath(avatar(relation.vendor.user) | imagine_filter('140_thumb'))}}" style="margin-bottom: 20px; border-radius: 50%;" /><br /> 
+    <span style=" font-size: 24px; font-weight:bold;">{{relation.vendor.getFullName()}}</span> <p style="color: #990000;">has just <b>declined your request for proposal</b>.</p>
+</div>
+
+{% if declinal is not empty %}
+    Your vendor's message :<br /><br />
+    {{ declinal.why }} <br /><br />
+    {{ declinal.other }} 
+{% endif %}
+    
+{% endblock %}
+    
+{% block button1 %}
+View RFP
+{% endblock %}
+
+{% block button1_url %}{% autoescape false %}
+{{url('vendor_rfp_show', {'idRelation':relation.id, 'idRFP':rfp.id})}}
+{% endautoescape %}{% endblock %}

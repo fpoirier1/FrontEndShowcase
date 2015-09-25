@@ -1,0 +1,91 @@
+//
+// Base/Typography
+// --------------------------------------------------
+
+
+// Imports
+// -------------------------
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('../fonts/OpenSans-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/OpenSans-Bold.ttf');
+    font-weight: 700;
+}
+
+// Overwriting Bootstrap Variables
+// -------------------------
+
+// TimeCrumbs' Variables
+// -------------------------
+
+$tc-line-height: 25px;
+
+
+// Typography Elements
+// -------------------------
+
+// Links
+a {
+    color: $primary-links;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+// Paragraphs
+p {
+    font-size: $font-size-base;
+    color: $gray;
+    line-height: $tc-line-height;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+// Mega Titles
+
+@mixin mega-title () {
+    font-size: 50px;
+    font-family: 'Open Sans Light', sans-serif;
+    color: $tc-brand-blue; 
+}
+
+// Mega Subtitle
+
+@mixin mega-subtitle () {
+    font-size: $font-size-base;
+    font-style: italic;
+    color: $gray;
+}
+
+// Block Title
+
+@mixin tc-block-title () {
+    font-size: $font-size-large;
+    color: $tc-brand-blue;
+}
+
+// Headings
+
+@mixin headings () {
+    font-size: 24px;
+    //color: $tc-brand-blue;
+    color: $gray-dark;
+}

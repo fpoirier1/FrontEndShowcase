@@ -1,0 +1,40 @@
+//
+// Layouts/Main
+// --------------------------------------------------
+
+// Imports
+// -------------------------
+@import "toolbar";
+@import "sheet";
+
+// Main Panel
+// -------------------------
+.tc-main-panel {
+    
+    .tc-toolbar {
+        height: 90px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: $menubar-normal-width - 10px;
+        z-index: 100;
+        padding-left: 10px;
+    }
+    
+    .push-thread {
+        
+    }
+    
+    // Container
+    .tc-sheet {
+        margin-top: 130px;
+    }
+}
+
+.order-show,
+.rfp-show {
+    
+    .tc-main-panel {
+        margin-right: 350px;
+    }
+}

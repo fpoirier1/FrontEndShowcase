@@ -1,0 +1,273 @@
+/******************************************************************/
+/*****    Section Relation:orders.html.twig    ********/
+/******************************************************************/
+.orders{
+    .tc-orders-section{
+        
+        // Filters
+        .tc-filters {
+            padding-bottom: 20px;
+            
+            .tc-filters-label {
+                color: $gray-light;
+                font-size: $font-size-h6;
+                padding: 0 20px;
+                font-style: italic;
+            }
+            
+            .tc-filters-label, tc-filters-label {
+                display: inline-block;
+            }
+        }
+        
+        // Saved as a draft
+        .tc-draft{
+            .tc-draft-state a{
+                @include tc-state-inprocess();
+            }
+        }
+        
+        .tc-draft-cancelled{
+            .tc-draft-state a{
+                @include tc-state-declined();
+            }
+        }
+        
+        // Save & Sent
+        .tc-sent{
+            .tc-sent-state a{
+                @include tc-state-inprocess();
+            }
+        }
+        
+        .tc-sent-viewed{
+            .tc-sent-state a{
+                @include tc-state-active();
+            }
+        }
+        
+        .tc-sent-cancelled,
+        .tc-sent-declined{
+            .tc-sent-state a{
+                @include tc-state-declined();
+            }
+        }
+        
+        // Closing
+        .tc-closed{
+            .tc-closed-state a{
+                @include tc-state-active();
+            }
+        }
+        
+        .tc-closed-cancelled{
+            .tc-closed-state a{
+                @include tc-state-declined();
+            }
+        }
+    }
+}
+
+/******************************************************************/
+/*****    Section Order:show.html.twig & edit.html.twig    ********/
+/******************************************************************/
+.order-edit,
+.order-show{
+    .tc-status-section {
+        display: inline-block;
+        padding-right: 25px;
+        margin-right: 25px;
+        border-right: 1px dashed #dededf;
+        color: $gray-light;
+        
+        .glyphicon {
+            vertical-align: top;
+            padding: 4px 0 8px 0;
+        }
+        
+    }
+    .tc-toolbar{
+        .tc-edit-btn{            
+            // Hack for caret height alignment the default bootstrap wasn't working...
+            .dropdown-toggle{
+                padding:6px 8px 10px 8px;        
+            }
+        }
+    }    
+    .tc-total-price{
+        margin: 0 50px 50px auto;
+    }
+}
+
+/*************************************************/
+/*****     Section Order:show.html.twig      *****/
+/*************************************************/
+.order-show{
+    
+    .tc-agreed-section {
+        color: #5cb85c;
+        position: absolute;
+        right: 0;
+        margin-top: -40px;
+        
+        span {
+            margin-right: 5px;
+        }
+    }
+    
+    .tc-agreement-section {
+        text-align: center;
+        padding: 30px 0;
+        background: url("/img/bg/footer-gradient.png") no-repeat top center;
+        
+        .agree-check {
+            padding: 15px 0 25px 0;
+            color: $gray;           
+            
+            input {
+                margin-right: 5px;
+            }
+            
+            label {
+                font-weight: normal
+            }
+            
+            label:hover {
+                cursor: pointer;
+            }
+        }
+        
+        .agree-btn {
+            display: inline-block;
+            
+            .btn-lg, .btn-group-lg>.btn {
+                padding: 20px 24px;
+            }
+            
+        }
+        
+        .decline-btn {
+            display: inline-block;
+            margin: 24px 0 0 20px;
+            position: absolute;
+            
+            a {
+                color: $gray-light;
+            }
+            
+            a:hover {
+                color: $red-dark;
+            }
+        }
+        
+        
+    }
+    
+}
+
+/*************************************************/
+/*****     Section Order:edit.html.twig      *****/
+/*************************************************/
+.order-edit{
+    
+    .tc-select-link {
+        border: 1px dashed $gray-border-color;
+        padding: 20px;
+        margin: 0 50px 20px 50px;
+        text-align: center;
+        border-radius: 4px;
+        
+        .description {
+            display: inline-block;
+            padding-right: 20px;
+            color: $gray-light;
+            font-style: italic;
+            vertical-align: top;
+            padding-top: 9px;
+            
+            span {
+                padding-right: 20px;
+            }
+        }
+        
+        .select-widget {
+            display: inline-block;
+            text-align: left;
+        }
+    }
+    
+    .tc-heading-section {
+        .heading-input{
+            font-weight: 300;
+            font-size: 60px;
+            font-family: 'Open Sans', sans-serif;
+            color: #0a6895;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-transition: none;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px dashed #dededf;
+            padding: 0 0 5px 5px;
+            height: auto;
+        }
+        
+        .subheading-input {
+            font-size: 20px;
+            font-style: italic;
+            color: #777;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-transition: none;
+            border: none;
+            border-bottom: 1px dashed #dededf;
+            padding: 0 0 10px 5px;
+            height: auto;
+            font-size: 14px;
+            margin-top: -6px;
+        }
+    }       
+    
+    .tc-offer-section{
+        
+    }
+    
+    
+    
+    .new-block-section {
+        border: 1px dashed #dededf;
+        padding: 20px 20px 20px 16px;
+        margin: 20px 0;
+        position: relative;
+    }
+    
+    .new-block-section:before {
+        display: block;
+        content: ".";
+        color: transparent;
+        font-size: 0;
+        border-left: 4px solid #0a6895;
+        position: absolute;
+        left: -1px;
+        padding: 1px 0;
+        top: -1px;
+        bottom: -1px;
+    }
+    
+    .tc-btn-newtext {
+        margin-top: 10px;
+        
+        span {
+            margin-right: 3px;
+        }
+    }
+}
+/*************************************************/
+/*****    Section Order:discuss.html.twig    *****/
+/*************************************************/
+.order-discuss{
+    .tc-comment .media-object{
+        width:60px;
+        height:60px;
+    }
+}

@@ -1,0 +1,37 @@
+{% extends "::skeleton_email.html.twig" %}
+
+{% block subject %}
+{% autoescape false %}
+New Work Opportunity! {{relation.client.getFullName()}} has just invited you to partner up!
+{% endautoescape %}
+{% endblock %}
+
+{% block title %}
+{% autoescape false %}
+<img src="{{ app.request.uriForPath('/img/email/title-invitation.jpg')}}" border="0" />
+{% endautoescape %}
+{% endblock %}
+
+{% block sub_title %}{% autoescape false %}
+Partnership Opportunity
+{% endautoescape %}{% endblock %}
+
+{% block body_html %}
+{% autoescape false %}
+
+<div style="color: #112834; padding-bottom: 20px; margin-bottom: 30px; border-bottom: 1px solid #dededf;">
+    <img src="{{app.request.uriForPath(avatar(relation.client.user) | imagine_filter('140_thumb'))}}" style="margin-bottom: 20px; border-radius: 50%;" /><br /> 
+    <span style=" font-size: 24px; font-weight:bold;">{{relation.client.getFullName()}}</span> <p style="color: #2cb34f;">would be interested to <b>work with you</b> using TimeCrumbs.</p>
+</div>
+
+<p>TimeCrumbs enables a rich collaborative experience between business and their vendors during projects. By centralizing work related communication in a single platform, both parties will stay in sync, be transparent to each others and will be able to better adapt to changes that could occur during projects. The goal is to totally eliminate possible frustrations due to miscommunication.</p>
+{% endautoescape %}
+{% endblock %}
+
+{% block button1 %}
+Get Started
+{% endblock %}
+
+{% block button1_url %}{% autoescape false %}
+{{url('client_overview', {'idRelation': relation.id})}}
+{% endautoescape %}{% endblock %}

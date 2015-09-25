@@ -1,0 +1,42 @@
+<template name="message_edit_progress">
+
+  <ul class="list-unstyled">
+    {{#each progress_notes}}
+      {{> message_edit_progress_line}}
+    {{/each}}
+  </ul> 
+</template>
+
+<template name="message_edit_progress_line">
+  <li class="row">
+
+    <div class="tc-col-objective col-xs-6 col-sm-4 col-md-5 col-lg-6">
+      <select name="progressObjective" class="form-control" 
+        placeholder="Select an Objective">
+        <option></option>
+        {{#each objectives}}
+        <option value="{{_id}}" {{selected}}>{{title}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    
+    <div class="tc-col-label col-xs-3 text-center" style="padding-top:5px">
+      <em class="small">is now completed at</em>
+    </div>
+
+
+    <div class="tc-col-value col-xs-6 col-sm-5 col-md-4 col-lg-3">
+      <select name="progressValue" class="form-control">
+        {{#each values}}
+        <option value="{{value}}" {{selected}}>{{value}}%</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <button type="button" class="tc-remove btn btn-sm btn-link">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+
+  </li>
+</template>
